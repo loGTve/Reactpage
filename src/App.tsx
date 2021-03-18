@@ -1,70 +1,90 @@
-import React from "react";
+import React, {CSSProperties} from "react";
 import styled from "styled-components";
 import {Search} from '@styled-icons/boxicons-regular/Search';
+import {UserCircle} from '@styled-icons/boxicons-regular/UserCircle';
 import logo from './image/star.png';
 
+const Box = styled.div`
+  display: flex;
+`
 
-const Loginbar = styled.div`
+const LoginBar = styled.div`
   width: auto;
   height: 30px;
   background: #f1f1f1;
 `
 
-const Logright = styled.button`
+const LogRight = styled.button`
   height: auto;
-  margin-top: 0.2%;
+  margin-top: 5px;
   float: right;
   border: 0;
   font-weight: bold;
-  font-family: 맑은고딕;
+  font-family: 굴림;
 `
 
-const Logleft = styled.div`
+const LogLeft = styled.div`
   float: left;
-  margin-left: 5%;
+  margin-left: 60px;
   font-weight: bold;
-  margin-top: 0.2%;
-  font-family: 맑은고딕;
+  margin-top: 5px;
+  font-family: 굴림;
 `
+const LogoStyle: CSSProperties = {
+    width: '100px',
+    height: '100px',
+    float: 'left',
+    marginLeft: '50px',
+    marginTop: '10px'
+};
 
-// eslint-disable-next-line
-const Searchbar = styled.div`
-  width: 40%;
-  height: 20px;
-  border-radius: 20px;
-  margin: 10px 0;
-  padding: 20px 25px;
-  background: #404040;
-`
-// eslint-disable-next-line
-const SearchIcon = styled(Search)`
-  position: absolute;
-  left: 15px;
-  top: 22px;
-  margin: 0;
-`
-
-const Logostyle = styled.img`
-  width: 30px;
-  height: 30px;
+const SearchBar = styled.div`
   float: left;
-  margin-left: 5%;
+  padding: 3px;
+  border-radius: 20px;
+  background: #202020;
+  width: 700px;
+  height: 20px;
+  margin-top: 35px;
+  margin-left: 110px;
+  box-shadow: 2px 4px 3px;
+`
+
+const SearchIcon = styled(Search)`
+  float: right;
+  width: 20px;
+  margin-top: 2px;
+  margin-right: 10px;
+  color: white;
+  
+`
+
+const MyInfo = styled(UserCircle)`
+  float: right;
+  width: 60px;
+  height: 60px;
+  margin-top: 20px;
+  margin-left: 30px;
 `
 
 function App() {
     return (
         <html>
         <div>
-            <Loginbar>
-                <Logleft>앱 설치하기</Logleft>
-                <Logright>고객센터</Logright>
-                <Logright>회원가입</Logright>
-                <Logright>로그인</Logright>
-            </Loginbar>
+            <LoginBar>
+                <LogLeft>앱 설치하기</LogLeft>
+                <LogRight>고객센터</LogRight>
+                <LogRight>회원가입</LogRight>
+                <LogRight>로그인</LogRight>
+            </LoginBar>
         </div>
-
+        <Box>
+            <img src={logo}  alt="logos" style={LogoStyle}/>
+            <SearchBar><SearchIcon /></SearchBar>
+            <MyInfo />
+        </Box>
         <div>
-            <img src={logo}  alt="logos" className={Logostyle}/>
+
         </div>
         </html>
     );
